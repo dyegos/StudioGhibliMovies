@@ -1,0 +1,29 @@
+excluded:
+- Pods
+
+force_cast: warning
+force_try:
+    severity: warning
+
+cyclomatic_complexity: 12
+file_length: 550
+function_body_length: 80
+function_parameter_count: 8
+line_length: 150
+type_body_length: 300
+variable_name:
+    min_length:
+        error: 1
+        warning: 1
+type_name:
+    min_length: 4
+    max_length:
+        warning: 50
+        error: 60
+large_tuple:
+    - 4
+    - 5
+
+opt_in_rules:
+    - overridden_super_call
+    - toggle_bool
