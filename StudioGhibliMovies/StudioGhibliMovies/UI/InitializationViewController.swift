@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 import RxSwift
+import RxCocoa
 
-final class InitializationViewController: UIViewController {
+final class InitializationViewController: RxViewController {
 
     private let network = GhibliNetwork()
-    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +22,26 @@ final class InitializationViewController: UIViewController {
         network
             .movies
             .subscribe(onSuccess: { [weak self] movies in
+                self?.presentPager(movies: movies)
+            }, onError: { [weak self] error in
                 guard let strongSelf = self else { return }
 
-                let moviesVC = MoviesViewController(network: strongSelf.network)
-                self?.present(moviesVC, animated: true, completion: nil)
-                }, onError: { [weak self] error in
-                    guard let strongSelf = self else { return }
+                UIAlertController.alertError(error.localizedDescription, onViewController: strongSelf)
+            }).disposed(by: self.disposeBag)
+    }
 
-                    UIAlertController.alertError(error.localizedDescription, onViewController: strongSelf)
-            }) .disposed(by: self.disposeBag)
+    private func presentPager(movies: [Movie]) {
+        let models: [MovieModel] = movies.map { MovieModel(movie: $0) }
+        let viewModel = PagerNavigationControllerViewModel(models: models,
+                                                           pagerViewModelType: MovieYearViewModel.self,
+                                                           currentItemIndex: models.count - 1,
+                                                           originalItemIndex: models.count - 1)
+
+        let pagerViewModel = PagerContentViewControllerViewModel(contentType: MoviesViewController.self)
+        let pagesContent = PagerContentViewController(viewModel: pagerViewModel)
+
+        let navigation = PagerNavigationController(viewController: pagesContent, viewModel: viewModel)
+
+        self.present(navigation, animated: true, completion: nil)
     }
 }

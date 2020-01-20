@@ -14,7 +14,6 @@ import UIKit
 
 struct PagerContentViewControllerViewModel {
     let contentType: UIViewController.Type
-    let contentViewModelType: PagerContentCellViewModel.Type
     let isBackButtonHidden = BehaviorRelay<Bool>(value: true)
 }
 
@@ -44,12 +43,14 @@ final class PagerContentViewController: RxViewController, PagerNavigationContain
         super.viewDidLoad()
 
         self.view.backgroundColor = .white
-        self.contentCollectionView.register(PagerContentCollectionViewCell.self)
-        self.contentCollectionView.backgroundColor = .white
 
         self.configureUI()
-        self.setupBackButton()
         self.setupObservers()
+
+        self.contentCollectionView.register(PagerContentCollectionViewCell.self)
+        self.contentCollectionView.backgroundColor = .white
+        self.contentCollectionView.delegate = self
+        self.contentCollectionView.dataSource = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -61,15 +62,9 @@ final class PagerContentViewController: RxViewController, PagerNavigationContain
                 self?.scrollToPage(at: index, animated: true)
             }).disposed(by: disposeBag)
 
-        self.periodNavigation
-            .dataSource
-            .map({ $0.compactMap { [weak self] in self?.viewModel.contentViewModelType.init(model: $0) } })
-            .subscribe(onNext: { [weak self] viewModels in
-                self?.contentCollectionView.configure(viewModels: viewModels)
-            }).disposed(by: disposeBag)
-
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
+            strongSelf.contentCollectionView.reloadData()
             strongSelf.scrollToPage(at: strongSelf.periodNavigation.currentItemIndex.value)
             strongSelf.updateBackButton(strongSelf.contentCollectionView)
         }
@@ -93,7 +88,7 @@ final class PagerContentViewController: RxViewController, PagerNavigationContain
         }
     }
 
-    private func setupBackButton() {
+    private func setupObservers() {
         self.viewModel
             .isBackButtonHidden
             .do(onNext: { [weak self] isHidden in
@@ -105,31 +100,6 @@ final class PagerContentViewController: RxViewController, PagerNavigationContain
             })
             .map({ !$0 })
             .bind(to: self.backButton.rx.isEnabled)
-            .disposed(by: disposeBag)
-    }
-
-    private func setupObservers() {
-        self.contentCollectionView
-            .rx
-            .willDisplayCell
-            .subscribe(onNext: { [weak self] content in
-                guard let strongSelf = self,
-                    let cell = content.cell as? PagerContentCollectionViewCell else {
-                        return
-                }
-
-                PagerContentCellBinder.bindContent(toCell: cell, fromType: strongSelf.viewModel.contentType, owner: strongSelf)
-                cell.loadContent(at: content.at.item)
-            }).disposed(by: disposeBag)
-
-        self.contentCollectionView
-            .rx
-            .setDelegate(self)
-            .disposed(by: disposeBag)
-
-        self.contentCollectionView
-            .rx
-            .bind(dataSource: self.contentCollectionView.viewModels, cellType: PagerContentCollectionViewCell.self)
             .disposed(by: disposeBag)
 
         self.backButton
@@ -159,7 +129,26 @@ final class PagerContentViewController: RxViewController, PagerNavigationContain
     }
 }
 
+extension PagerContentViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        self.periodNavigation.dataSource.value.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        collectionView.dequeueCell(PagerContentCollectionViewCell.self, indexPath: indexPath)
+    }
+}
+
 extension PagerContentViewController: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = cell as? PagerContentCollectionViewCell else {
+            return
+        }
+
+        PagerContentCellBinder.bindContent(toCell: cell, fromType: self.viewModel.contentType, owner: self)
+        cell.loadContent(at: indexPath.item)
+    }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let percentageOfScroll = scrollView.contentOffset.x / scrollView.frame.width

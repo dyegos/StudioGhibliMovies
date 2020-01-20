@@ -47,6 +47,10 @@
 		A0D2413A23D65618004CCE45 /* PagerContentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D2412923D65618004CCE45 /* PagerContentCellViewModel.swift */; };
 		A0D2413B23D65618004CCE45 /* ContentFillCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D2412B23D65618004CCE45 /* ContentFillCollectionFlowLayout.swift */; };
 		A0D2413C23D65618004CCE45 /* CellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D2412D23D65618004CCE45 /* CellConfiguration.swift */; };
+		A0E6A4FB23D6644E002B1D76 /* MovieCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E6A4FA23D6644E002B1D76 /* MovieCellViewModel.swift */; };
+		A0E6A4FD23D6646F002B1D76 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E6A4FC23D6646F002B1D76 /* MovieTableViewCell.swift */; };
+		A0E6A4FF23D664B3002B1D76 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E6A4FE23D664B3002B1D76 /* MovieModel.swift */; };
+		A0E6A50123D664E6002B1D76 /* MoviewYearViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E6A50023D664E6002B1D76 /* MoviewYearViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +98,10 @@
 		A0D2412923D65618004CCE45 /* PagerContentCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagerContentCellViewModel.swift; sourceTree = "<group>"; };
 		A0D2412B23D65618004CCE45 /* ContentFillCollectionFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentFillCollectionFlowLayout.swift; sourceTree = "<group>"; };
 		A0D2412D23D65618004CCE45 /* CellConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellConfiguration.swift; sourceTree = "<group>"; };
+		A0E6A4FA23D6644E002B1D76 /* MovieCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellViewModel.swift; sourceTree = "<group>"; };
+		A0E6A4FC23D6646F002B1D76 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		A0E6A4FE23D664B3002B1D76 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		A0E6A50023D664E6002B1D76 /* MoviewYearViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviewYearViewModel.swift; sourceTree = "<group>"; };
 		D7456203C7AA5568FEDB0760 /* Pods_StudioGhibliMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudioGhibliMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -151,7 +159,6 @@
 		A08D2ECC23D612CD002FE591 /* StudioGhibliMovies */ = {
 			isa = PBXGroup;
 			children = (
-				A0D2411923D65618004CCE45 /* Pager Controller */,
 				A0D2412C23D65618004CCE45 /* Protocols */,
 				A0B77AAB23D64FDE0053749D /* Resources */,
 				A0B77AA623D64F000053749D /* UI */,
@@ -195,8 +202,13 @@
 		A0B77AA623D64F000053749D /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A0D2411923D65618004CCE45 /* Pager Controller */,
 				A0B77AA423D64B8D0053749D /* MoviesViewController.swift */,
 				A0B77AA723D64F210053749D /* InitializationViewController.swift */,
+				A0E6A4FA23D6644E002B1D76 /* MovieCellViewModel.swift */,
+				A0E6A4FC23D6646F002B1D76 /* MovieTableViewCell.swift */,
+				A0E6A4FE23D664B3002B1D76 /* MovieModel.swift */,
+				A0E6A50023D664E6002B1D76 /* MoviewYearViewModel.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -415,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0E6A4FD23D6646F002B1D76 /* MovieTableViewCell.swift in Sources */,
 				A0D240FB23D65309004CCE45 /* UIView+Subviews.swift in Sources */,
 				A08D2ED823D612CD002FE591 /* StudioGhibliMovies.xcdatamodeld in Sources */,
 				A0D2413023D65618004CCE45 /* PagerTabCollectionView.swift in Sources */,
@@ -422,6 +435,8 @@
 				A0D2411223D6560A004CCE45 /* UICollectionView+dataSourceBinder.swift in Sources */,
 				A0B77AA523D64B8D0053749D /* MoviesViewController.swift in Sources */,
 				A0D2411723D6560A004CCE45 /* UILabel+Scale.swift in Sources */,
+				A0E6A4FF23D664B3002B1D76 /* MovieModel.swift in Sources */,
+				A0E6A50123D664E6002B1D76 /* MoviewYearViewModel.swift in Sources */,
 				A0B77A9C23D646850053749D /* Thread+Safe.swift in Sources */,
 				A0D2413923D65618004CCE45 /* PagerContentViewController.swift in Sources */,
 				A08D2ECE23D612CD002FE591 /* AppDelegate.swift in Sources */,
@@ -440,6 +455,7 @@
 				A0D2413223D65618004CCE45 /* PagerCellViewModelProtocol.swift in Sources */,
 				A0D2411823D6560A004CCE45 /* UICollectionView+Dequeue.swift in Sources */,
 				A0D2411423D6560A004CCE45 /* UITableView+Dequeue.swift in Sources */,
+				A0E6A4FB23D6644E002B1D76 /* MovieCellViewModel.swift in Sources */,
 				A0D2412E23D65618004CCE45 /* PagerScrollBackButton.swift in Sources */,
 				A0D2413323D65618004CCE45 /* PagerNavigationControllerViewModel.swift in Sources */,
 				A0D2412F23D65618004CCE45 /* PagerTabCollectionViewCell.swift in Sources */,

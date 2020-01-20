@@ -13,15 +13,8 @@ import UIKit
 
 final class PagerContentCollectionView: RxCollectionView {
 
-    let viewModels = BehaviorRelay<[PagerContentCellViewModel]>(value: [])
-
     init() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.itemSize = PagerTabBarDimensionsProvider.collectionSize
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 0
-        super.init(frame: .zero, collectionViewLayout: layout)
+        super.init(frame: .zero, collectionViewLayout: ContentFillCollectionFlowLayout())
         self.showsHorizontalScrollIndicator = false
         self.isPagingEnabled = true
         self.allowsSelection = false
@@ -29,9 +22,5 @@ final class PagerContentCollectionView: RxCollectionView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    func configure(viewModels: [PagerContentCellViewModel]) {
-        self.viewModels.accept(viewModels)
     }
 }
