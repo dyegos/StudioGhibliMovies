@@ -20,7 +20,7 @@ final class MovieTableViewCell: RxTableViewCell, CellIdentifiable, CellConfigura
 
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.enableScaleToFit()
+        label.numberOfLines = 0
 
         return label
     }()
@@ -32,8 +32,16 @@ final class MovieTableViewCell: RxTableViewCell, CellIdentifiable, CellConfigura
         return label
     }()
 
+    private let producerLabel: UILabel = {
+        let label = UILabel()
+        label.enableScaleToFit()
+
+        return label
+    }()
+
     private let scoreLabel: UILabel = {
         let label = UILabel()
+        label.textAlignment = .left
         label.enableScaleToFit()
 
         return label
@@ -41,7 +49,6 @@ final class MovieTableViewCell: RxTableViewCell, CellIdentifiable, CellConfigura
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
         configureUI()
     }
 
@@ -52,10 +59,52 @@ final class MovieTableViewCell: RxTableViewCell, CellIdentifiable, CellConfigura
     }
 
     private func configureUI() {
+        self.accessoryType = .disclosureIndicator
+        self.contentView.addSubviews(self.titleLabel,
+                                     self.descriptionLabel,
+                                     self.directorLabel,
+                                     self.producerLabel,
+                                     self.scoreLabel)
 
+        self.titleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(10)
+            $0.leading.equalToSuperview().offset(16)
+            $0.height.equalTo(20)
+        }
+
+        self.scoreLabel.snp.makeConstraints {
+            $0.top.equalTo(self.titleLabel)
+            $0.leading.equalTo(self.titleLabel.snp.trailing).offset(6)
+            $0.trailing.equalToSuperview().offset(-16)
+            $0.bottom.equalTo(self.titleLabel)
+        }
+
+        self.descriptionLabel.snp.makeConstraints {
+            $0.leadingTrailingEqualToSuperview(offset: 16)
+            $0.top.equalTo(self.titleLabel.snp.bottom).offset(6)
+        }
+
+        self.directorLabel.snp.makeConstraints {
+            $0.top.equalTo(self.descriptionLabel.snp.bottom).offset(6)
+            $0.leadingTrailingEqualToSuperview(offset: 16)
+            $0.height.equalTo(20)
+        }
+
+        self.producerLabel.snp.makeConstraints {
+            $0.top.equalTo(self.directorLabel.snp.bottom).offset(6)
+            $0.leadingTrailingEqualToSuperview(offset: 16)
+            $0.height.equalTo(20)
+            $0.bottom.equalToSuperview().offset(-10)
+        }
     }
 
     func configure(_ model: ItemViewModel) {
         guard let model = model as? MovieCellViewModel else { return }
+
+        self.titleLabel.text = model.title
+        self.scoreLabel.text = model.score
+        self.descriptionLabel.text = model.description
+        self.directorLabel.text = model.director
+        self.producerLabel.text = model.producer
     }
 }

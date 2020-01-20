@@ -9,5 +9,5 @@
 import Foundation
 
 struct MovieModel: PagerDataSourceModel {
-    let movie: Movie
+    let movies: [Movie]
 }

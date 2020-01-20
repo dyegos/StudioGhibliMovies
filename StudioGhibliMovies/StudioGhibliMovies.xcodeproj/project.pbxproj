@@ -51,6 +51,7 @@
 		A0E6A4FD23D6646F002B1D76 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E6A4FC23D6646F002B1D76 /* MovieTableViewCell.swift */; };
 		A0E6A4FF23D664B3002B1D76 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E6A4FE23D664B3002B1D76 /* MovieModel.swift */; };
 		A0E6A50123D664E6002B1D76 /* MoviewYearViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E6A50023D664E6002B1D76 /* MoviewYearViewModel.swift */; };
+		A0E6A50323D670A1002B1D76 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0E6A50223D670A1002B1D76 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,7 @@
 		A0E6A4FC23D6646F002B1D76 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		A0E6A4FE23D664B3002B1D76 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		A0E6A50023D664E6002B1D76 /* MoviewYearViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviewYearViewModel.swift; sourceTree = "<group>"; };
+		A0E6A50223D670A1002B1D76 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D7456203C7AA5568FEDB0760 /* Pods_StudioGhibliMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudioGhibliMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				A0B77AAE23D64FF70053749D /* Localizable.strings */,
+				A0E6A50223D670A1002B1D76 /* Images.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A031B51723D6386600549556 /* .swiftlint.yml in Resources */,
+				A0E6A50323D670A1002B1D76 /* Images.xcassets in Resources */,
 				A0B77AAC23D64FF70053749D /* Localizable.strings in Resources */,
 				A08D2EDD23D612CF002FE591 /* LaunchScreen.storyboard in Resources */,
 				A08D2EDA23D612CF002FE591 /* Assets.xcassets in Resources */,

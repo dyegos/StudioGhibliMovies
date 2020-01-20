@@ -17,8 +17,9 @@ struct MovieYearViewModel: PagerCellViewModelProtocol {
     var isHighlighted = BehaviorRelay<Bool>(value: false)
 
     init(model: PagerDataSourceModel) {
-        guard let model = model as? MovieModel else { fatalError("model does not conform to PagerDataSourceModel") }
+        guard let model = model as? MovieModel,
+            let date = model.movies.first?.releaseDate else { fatalError("model does not conform to PagerDataSourceModel") }
 
-        self.title = "Released in \(model.movie.releaseDate)"
+        self.title = "Released in \(date)"
     }
 }

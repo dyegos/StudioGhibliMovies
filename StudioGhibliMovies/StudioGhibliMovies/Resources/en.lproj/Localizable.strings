@@ -8,3 +8,6 @@
 
 "error_message" = "";
 "error_title" = "";
+"produced_by" = "%@";
+"directed_by" = "%@";
+"scored_as" = "%@";

@@ -83,8 +83,8 @@ final class PagerContentViewController: RxViewController, PagerNavigationContain
 
         self.backButton.snp.makeConstraints {
             $0.top.equalTo(contentCollectionView.snp.top)
-            self.backButtonTrailingConstraint = $0.trailing.equalToSuperview().offset(42).constraint
-            $0.height.width.equalTo(42)
+            self.backButtonTrailingConstraint = $0.trailing.equalToSuperview().offset(20).constraint
+            $0.height.width.equalTo(20)
         }
     }
 

@@ -17,8 +17,8 @@ final class PagerScrollBackButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: .zero)
 
-        self.setImage(UIImage(named: "period_back"), for: .normal)
-        self.setImage(UIImage(named: "period_back_pressed"), for: .highlighted)
+        self.setImage(UIImage(named: "back_icon"), for: .normal)
+        self.imageView?.contentMode = .scaleAspectFit
     }
 
     required init?(coder: NSCoder) {

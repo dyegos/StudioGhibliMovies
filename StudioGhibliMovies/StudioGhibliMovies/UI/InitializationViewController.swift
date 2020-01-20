@@ -31,7 +31,12 @@ final class InitializationViewController: RxViewController {
     }
 
     private func presentPager(movies: [Movie]) {
-        let models: [MovieModel] = movies.map { MovieModel(movie: $0) }
+
+        let models = Dictionary(grouping: movies) { $0.releaseDate }
+            .sorted { $0.value.first!.releaseDate < $1.value.first!.releaseDate  }
+            .map { MovieModel(movies: $0.value) }
+
+//        let models: [MovieModel] = movies.map { MovieModel(movies: [$0]) }
         let viewModel = PagerNavigationControllerViewModel(models: models,
                                                            pagerViewModelType: MovieYearViewModel.self,
                                                            currentItemIndex: models.count - 1,
