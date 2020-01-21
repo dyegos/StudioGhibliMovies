@@ -20,6 +20,15 @@ final class InitializationViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .safeSystemBackground
 
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.text = "Loading Content..."
+        self.view.addSubview(label)
+
+        label.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+
         self.requestMovies()
     }
 
