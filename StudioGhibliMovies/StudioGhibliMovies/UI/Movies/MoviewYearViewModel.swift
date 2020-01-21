@@ -20,6 +20,6 @@ struct MovieYearViewModel: PagerCellViewModelProtocol {
         guard let model = model as? MovieModel,
             let date = model.movies.first?.releaseDate else { fatalError("model does not conform to PagerDataSourceModel") }
 
-        self.title = "Released in \(date)"
+        self.title = String(format: NSLocalizedString("released_in", comment: ""), date)
     }
 }

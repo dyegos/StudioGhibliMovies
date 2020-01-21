@@ -12,3 +12,10 @@
 "directed_by" = "Dirigido por: %@";
 "scored_as" = "Nota: %@";
 "unknown_error" = "Erro Desconhecido";
+"unknown" = "Desconhecido";
+"classification" = "Classificação: %@";
+"specie" = "Espécie: %@";
+"gender" = "Gênero: %@";
+"age" = "Idade: %@";
+"loading" = "Carregando Conteúdo...";
+"released_in" = "Lançado em %@";

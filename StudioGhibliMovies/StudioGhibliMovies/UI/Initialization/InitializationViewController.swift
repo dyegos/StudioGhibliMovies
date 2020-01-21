@@ -22,7 +22,7 @@ final class InitializationViewController: UIViewController {
 
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.text = "Loading Content..."
+        label.text = NSLocalizedString("loading", comment: "")
         self.view.addSubview(label)
 
         label.snp.makeConstraints {
