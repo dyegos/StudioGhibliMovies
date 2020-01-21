@@ -8,6 +8,7 @@
 
 "error_message" = "";
 "error_title" = "";
-"produced_by" = "%@";
-"directed_by" = "%@";
-"scored_as" = "%@";
+"produced_by" = "Produced by: %@";
+"directed_by" = "Directed by: %@";
+"scored_as" = "Scored: %@";
+"unknown_error" = "Unknown Error";

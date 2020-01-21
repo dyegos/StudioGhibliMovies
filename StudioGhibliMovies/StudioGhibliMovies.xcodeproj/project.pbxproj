@@ -159,10 +159,10 @@
 		A08D2ECC23D612CD002FE591 /* StudioGhibliMovies */ = {
 			isa = PBXGroup;
 			children = (
-				A0D2412C23D65618004CCE45 /* Protocols */,
 				A0B77AAB23D64FDE0053749D /* Resources */,
 				A0B77AA623D64F000053749D /* UI */,
 				A0B77A9F23D64B070053749D /* Models */,
+				A0D2412C23D65618004CCE45 /* Protocols */,
 				A0B77A9E23D6468E0053749D /* Extensions */,
 				A031B51A23D63F5E00549556 /* Networking */,
 				A08D2ECD23D612CD002FE591 /* AppDelegate.swift */,
