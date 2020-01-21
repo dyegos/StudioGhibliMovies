@@ -17,9 +17,10 @@ struct PagerTabBarDimensionsProvider {
     static let collectionSize: CGSize = { CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 26.0) }()
 }
 
-final class PagerTabCollectionView: RxCollectionView {
+final class PagerTabCollectionView: UICollectionView {
 
     let viewModels = BehaviorRelay<[PagerCellViewModelProtocol]>(value: [])
+    private let disposeBag = DisposeBag()
 
     init() {
         let layout = UICollectionViewFlowLayout()

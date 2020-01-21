@@ -50,7 +50,7 @@ final class PagerTabCollectionViewCell: RxCollectionViewCell, CellIdentifiable, 
 
         self.titleLabel.snp.makeConstraints {
             $0.leadingTrailingEqualToSuperview(offset: 4)
-            $0.topBottomEqualToSuperview(offset: 0)
+            $0.top.bottom.equalToSuperview()
         }
     }
 }

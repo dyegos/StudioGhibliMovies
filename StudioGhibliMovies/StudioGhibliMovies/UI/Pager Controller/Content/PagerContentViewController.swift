@@ -17,7 +17,7 @@ struct PagerContentViewControllerViewModel {
     let isBackButtonHidden = BehaviorRelay<Bool>(value: true)
 }
 
-final class PagerContentViewController: RxViewController, PagerNavigationContainerProtocol {
+final class PagerContentViewController: UIViewController, PagerNavigationContainerProtocol {
 
     // MARK: - Private properties
 
@@ -25,6 +25,7 @@ final class PagerContentViewController: RxViewController, PagerNavigationContain
     private let backButton = PagerScrollBackButton()
     private let viewModel: PagerContentViewControllerViewModel
     private var backButtonTrailingConstraint: Constraint?
+    private let disposeBag = DisposeBag()
 
     // MARK: - Initialization
 
@@ -73,7 +74,8 @@ final class PagerContentViewController: RxViewController, PagerNavigationContain
     // MARK: - Private Methods
 
     private func configureUI() {
-        self.view.addSubviews(self.contentCollectionView, self.backButton)
+        self.view.addSubview(self.contentCollectionView)
+        self.view.addSubview(self.backButton)
 
         self.contentCollectionView.snp.makeConstraints {
             $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(PagerTabBarDimensionsProvider.height)

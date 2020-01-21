@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import UIKit
 
-final class PagerContentCollectionView: RxCollectionView {
+final class PagerContentCollectionView: UICollectionView {
 
     init() {
         super.init(frame: .zero, collectionViewLayout: ContentFillCollectionFlowLayout())

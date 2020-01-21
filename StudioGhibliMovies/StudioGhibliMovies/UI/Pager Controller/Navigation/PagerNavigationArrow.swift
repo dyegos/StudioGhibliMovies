@@ -10,9 +10,15 @@ import Foundation
 import UIKit
 
 final class PagerNavigationArrow: UIView {
-    let arrowView = UIView()
-    let leftView = UIView()
-    let rightView = UIView()
+
+    private let arrowImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "arrow_up")
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    private let leftView = UIView()
+    private let rightView = UIView()
 
     init() {
         super.init(frame: .zero)
@@ -24,21 +30,22 @@ final class PagerNavigationArrow: UIView {
     }
 
     private func configureUI() {
-        self.addSubviews(leftView, arrowView, rightView)
+        self.addSubview(leftView)
+        self.addSubview(arrowImageView)
+        self.addSubview(rightView)
 
-        leftView.backgroundColor = .lightGray
-        rightView.backgroundColor = .lightGray
-        arrowView.backgroundColor = .gray
+        leftView.backgroundColor = .black
+        rightView.backgroundColor = .black
 
         let lineHeight = 1 / UIScreen.main.scale
         leftView.snp.makeConstraints {
             $0.leading.equalToSuperview()
-            $0.trailing.equalTo(arrowView.snp.leading)
+            $0.trailing.equalTo(arrowImageView.snp.leading)
             $0.height.equalTo(lineHeight)
-            $0.bottom.equalTo(arrowView)
+            $0.bottom.equalTo(arrowImageView)
         }
 
-        arrowView.snp.makeConstraints {
+        arrowImageView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.centerX.equalToSuperview()
             $0.width.equalTo(12)
@@ -47,10 +54,10 @@ final class PagerNavigationArrow: UIView {
         }
 
         rightView.snp.makeConstraints {
-            $0.leading.equalTo(arrowView.snp.trailing)
+            $0.leading.equalTo(arrowImageView.snp.trailing)
             $0.trailing.equalToSuperview()
             $0.height.equalTo(lineHeight)
-            $0.bottom.equalTo(arrowView)
+            $0.bottom.equalTo(arrowImageView)
         }
     }
 }

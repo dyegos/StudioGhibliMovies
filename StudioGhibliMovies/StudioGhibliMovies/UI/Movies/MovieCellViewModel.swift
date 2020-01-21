@@ -11,18 +11,21 @@ import Foundation
 struct MovieCellViewModel: ItemViewModel, CellModelIdentifiable {
     static var associatedCellReuseIdentifier = MovieTableViewCell.reuseIdentifier
 
+    let id: String
     let title: String
     let description: String
     let producer: String
     let director: String
     let score: String
 
-    init(title: String,
+    init(id: String,
+         title: String,
          description: String,
          producer: String,
          director: String,
          score: String) {
 
+        self.id = id
         self.title = title
         self.description = description
         self.producer = String(format: NSLocalizedString("produced_by", comment: ""), producer)

@@ -2,21 +2,14 @@
 //  RX.swift
 //  StudioGhibliMovies
 //
-//  Created by dyego de jesus silva on 20/01/2020.
+//  Created by dyego de jesus silva on 21/01/2020.
 //  Copyright © 2020 Some. All rights reserved.
 //
 
 import Foundation
 import UIKit
 import RxSwift
-
-class RxViewController: UIViewController {
-    let disposeBag = DisposeBag()
-}
-
-class RxTableViewController: UITableViewController {
-    let disposeBag = DisposeBag()
-}
+import RxCocoa
 
 class RxTableViewCell: UITableViewCell {
     lazy var disposeBag: DisposeBag = DisposeBag()
@@ -39,8 +32,4 @@ class RxCollectionViewCell: UICollectionViewCell {
 
         self.disposeBag = DisposeBag()
     }
-}
-
-class RxCollectionView: UICollectionView {
-    lazy var disposeBag: DisposeBag = DisposeBag()
 }

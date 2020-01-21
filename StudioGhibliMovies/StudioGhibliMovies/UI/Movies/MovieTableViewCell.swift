@@ -60,11 +60,11 @@ final class MovieTableViewCell: RxTableViewCell, CellIdentifiable, CellConfigura
 
     private func configureUI() {
         self.accessoryType = .disclosureIndicator
-        self.contentView.addSubviews(self.titleLabel,
-                                     self.descriptionLabel,
-                                     self.directorLabel,
-                                     self.producerLabel,
-                                     self.scoreLabel)
+        self.contentView.addSubview(self.titleLabel)
+        self.contentView.addSubview(self.descriptionLabel)
+        self.contentView.addSubview(self.directorLabel)
+        self.contentView.addSubview(self.producerLabel)
+        self.contentView.addSubview(self.scoreLabel)
 
         self.titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(10)

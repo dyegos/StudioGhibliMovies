@@ -11,12 +11,13 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-final class MoviesViewController: RxViewController, ContentIndexable, PagerNavigationContainerProtocol {
+final class MoviesViewController: UIViewController, ContentIndexable, PagerNavigationContainerProtocol {
 
     let models = BehaviorRelay<[MovieCellViewModel]>(value: [])
-
+    
     private let network = GhibliNetwork()
-    let tableView = UITableView(frame: .zero, style: .plain)
+    private let tableView = UITableView(frame: .zero, style: .plain)
+    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,7 @@ final class MoviesViewController: RxViewController, ContentIndexable, PagerNavig
         self.view.addSubview(self.tableView)
         self.tableView.register(MovieTableViewCell.self)
         self.tableView.backgroundColor = .white
-        self.tableView.separatorStyle = .none
+        self.tableView.tableFooterView = UIView()
 
         self.tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -35,6 +36,20 @@ final class MoviesViewController: RxViewController, ContentIndexable, PagerNavig
             .rx
             .bind(dataSource: models, cellType: MovieTableViewCell.self)
             .disposed(by: disposeBag)
+
+        self.tableView
+            .rx
+            .itemSelected
+            .compactMap({ [weak self] indexPath -> Movie? in
+                guard let strongSelf = self else { return nil }
+                let currentIndex = strongSelf.periodNavigation.currentItemIndex.value
+                let model = strongSelf.periodNavigation.dataSource.value[currentIndex] as? MovieModel
+
+                return model?.movies[indexPath.row]
+            })
+            .subscribe(onNext: { [weak self] movie in
+//                self?.present(UIViewController(), animated: true, completion: nil)
+            }).disposed(by: disposeBag)
     }
 
     func setIndex(_ index: Int) {
@@ -42,14 +57,15 @@ final class MoviesViewController: RxViewController, ContentIndexable, PagerNavig
             .dataSource
             .compactMap({ $0[index] as? MovieModel })
             .subscribe(onNext: { [weak self] model in
-                self?.loadData(from: model, inPage: index)
+                self?.loadData(from: model)
             }).disposed(by: disposeBag)
     }
 
-    private func loadData(from model: MovieModel, inPage: Int) {
+    private func loadData(from model: MovieModel) {
 
         DispatchQueue.global(qos: .userInitiated).async {
-            let movies = model.movies.map({ MovieCellViewModel(title: $0.title,
+            let movies = model.movies.map({ MovieCellViewModel(id: $0.id,
+                                                               title: $0.title,
                                                                description: $0.description,
                                                                producer: $0.producer,
                                                                director: $0.director,

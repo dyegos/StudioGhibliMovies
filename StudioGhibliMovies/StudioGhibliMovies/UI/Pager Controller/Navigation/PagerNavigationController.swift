@@ -70,7 +70,8 @@ final class PagerNavigationController: UINavigationController {
     }
 
     private func setupUI() {
-        self.view.addSubviews(tabCollectionView, navigationArrow)
+        self.view.addSubview(tabCollectionView)
+        self.view.addSubview(navigationArrow)
 
         tabCollectionView.snp.makeConstraints {
             $0.top.equalTo(self.navigationBar.snp.bottom)

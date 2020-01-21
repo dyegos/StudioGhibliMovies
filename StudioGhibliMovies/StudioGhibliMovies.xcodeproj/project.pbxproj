@@ -13,6 +13,7 @@
 		A031B51C23D63F6D00549556 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031B51B23D63F6D00549556 /* Endpoint.swift */; };
 		A031B51E23D63FB600549556 /* TaskProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031B51D23D63FB600549556 /* TaskProviding.swift */; };
 		A031B52023D63FCA00549556 /* RequestProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031B51F23D63FCA00549556 /* RequestProviding.swift */; };
+		A04AF07D23D71BAC00AFD7B2 /* RX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04AF07C23D71BAC00AFD7B2 /* RX.swift */; };
 		A08D2ECE23D612CD002FE591 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D2ECD23D612CD002FE591 /* AppDelegate.swift */; };
 		A08D2ED823D612CD002FE591 /* StudioGhibliMovies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A08D2ED623D612CD002FE591 /* StudioGhibliMovies.xcdatamodeld */; };
 		A08D2EDA23D612CF002FE591 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A08D2ED923D612CF002FE591 /* Assets.xcassets */; };
@@ -24,11 +25,9 @@
 		A0B77AA823D64F210053749D /* InitializationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B77AA723D64F210053749D /* InitializationViewController.swift */; };
 		A0B77AAC23D64FF70053749D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0B77AAE23D64FF70053749D /* Localizable.strings */; };
 		A0B77AB123D650A90053749D /* UIAlertController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B77AB023D650A90053749D /* UIAlertController+Alerts.swift */; };
-		A0D240FB23D65309004CCE45 /* UIView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D240F923D65309004CCE45 /* UIView+Subviews.swift */; };
 		A0D2411223D6560A004CCE45 /* UICollectionView+dataSourceBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D2410B23D6560A004CCE45 /* UICollectionView+dataSourceBinder.swift */; };
 		A0D2411323D6560A004CCE45 /* SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D2410C23D6560A004CCE45 /* SnapKit.swift */; };
 		A0D2411423D6560A004CCE45 /* UITableView+Dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D2410D23D6560A004CCE45 /* UITableView+Dequeue.swift */; };
-		A0D2411523D6560A004CCE45 /* RX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D2410E23D6560A004CCE45 /* RX.swift */; };
 		A0D2411623D6560A004CCE45 /* UITableView+dataSourceBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D2410F23D6560A004CCE45 /* UITableView+dataSourceBinder.swift */; };
 		A0D2411723D6560A004CCE45 /* UILabel+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D2411023D6560A004CCE45 /* UILabel+Scale.swift */; };
 		A0D2411823D6560A004CCE45 /* UICollectionView+Dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D2411123D6560A004CCE45 /* UICollectionView+Dequeue.swift */; };
@@ -62,6 +61,7 @@
 		A031B51B23D63F6D00549556 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		A031B51D23D63FB600549556 /* TaskProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProviding.swift; sourceTree = "<group>"; };
 		A031B51F23D63FCA00549556 /* RequestProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProviding.swift; sourceTree = "<group>"; };
+		A04AF07C23D71BAC00AFD7B2 /* RX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RX.swift; sourceTree = "<group>"; };
 		A08D2ECA23D612CD002FE591 /* StudioGhibliMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudioGhibliMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08D2ECD23D612CD002FE591 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A08D2ED723D612CD002FE591 /* StudioGhibliMovies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StudioGhibliMovies.xcdatamodel; sourceTree = "<group>"; };
@@ -76,11 +76,9 @@
 		A0B77AAD23D64FF70053749D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A0B77AAF23D650640053749D /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A0B77AB023D650A90053749D /* UIAlertController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Alerts.swift"; sourceTree = "<group>"; };
-		A0D240F923D65309004CCE45 /* UIView+Subviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Subviews.swift"; sourceTree = "<group>"; };
 		A0D2410B23D6560A004CCE45 /* UICollectionView+dataSourceBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+dataSourceBinder.swift"; sourceTree = "<group>"; };
 		A0D2410C23D6560A004CCE45 /* SnapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapKit.swift; sourceTree = "<group>"; };
 		A0D2410D23D6560A004CCE45 /* UITableView+Dequeue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Dequeue.swift"; sourceTree = "<group>"; };
-		A0D2410E23D6560A004CCE45 /* RX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RX.swift; sourceTree = "<group>"; };
 		A0D2410F23D6560A004CCE45 /* UITableView+dataSourceBinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+dataSourceBinder.swift"; sourceTree = "<group>"; };
 		A0D2411023D6560A004CCE45 /* UILabel+Scale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Scale.swift"; sourceTree = "<group>"; };
 		A0D2411123D6560A004CCE45 /* UICollectionView+Dequeue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Dequeue.swift"; sourceTree = "<group>"; };
@@ -179,16 +177,15 @@
 		A0B77A9E23D6468E0053749D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A0D2410E23D6560A004CCE45 /* RX.swift */,
 				A0D2410C23D6560A004CCE45 /* SnapKit.swift */,
 				A0D2410B23D6560A004CCE45 /* UICollectionView+dataSourceBinder.swift */,
-				A0D2411123D6560A004CCE45 /* UICollectionView+Dequeue.swift */,
-				A0D2411023D6560A004CCE45 /* UILabel+Scale.swift */,
 				A0D2410F23D6560A004CCE45 /* UITableView+dataSourceBinder.swift */,
+				A0D2411123D6560A004CCE45 /* UICollectionView+Dequeue.swift */,
 				A0D2410D23D6560A004CCE45 /* UITableView+Dequeue.swift */,
-				A0D240F923D65309004CCE45 /* UIView+Subviews.swift */,
+				A0D2411023D6560A004CCE45 /* UILabel+Scale.swift */,
 				A0B77A9B23D646850053749D /* Thread+Safe.swift */,
 				A0B77AB023D650A90053749D /* UIAlertController+Alerts.swift */,
+				A04AF07C23D71BAC00AFD7B2 /* RX.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -448,7 +445,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0E6A4FD23D6646F002B1D76 /* MovieTableViewCell.swift in Sources */,
-				A0D240FB23D65309004CCE45 /* UIView+Subviews.swift in Sources */,
 				A08D2ED823D612CD002FE591 /* StudioGhibliMovies.xcdatamodeld in Sources */,
 				A0D2413023D65618004CCE45 /* PagerTabCollectionView.swift in Sources */,
 				A0B77AA823D64F210053749D /* InitializationViewController.swift in Sources */,
@@ -465,6 +461,7 @@
 				A0D2413823D65618004CCE45 /* PagerContentCollectionView.swift in Sources */,
 				A0B77AA323D64B490053749D /* GhibliNetwork.swift in Sources */,
 				A031B52023D63FCA00549556 /* RequestProviding.swift in Sources */,
+				A04AF07D23D71BAC00AFD7B2 /* RX.swift in Sources */,
 				A031B51C23D63F6D00549556 /* Endpoint.swift in Sources */,
 				A0D2413B23D65618004CCE45 /* ContentFillCollectionFlowLayout.swift in Sources */,
 				A031B51923D63BFF00549556 /* Network.swift in Sources */,
@@ -480,7 +477,6 @@
 				A0D2413323D65618004CCE45 /* PagerNavigationControllerViewModel.swift in Sources */,
 				A0D2412F23D65618004CCE45 /* PagerTabCollectionViewCell.swift in Sources */,
 				A0D2413C23D65618004CCE45 /* CellConfiguration.swift in Sources */,
-				A0D2411523D6560A004CCE45 /* RX.swift in Sources */,
 				A0D2413123D65618004CCE45 /* PagerNavigationContainerProtocol.swift in Sources */,
 				A0D2413A23D65618004CCE45 /* PagerContentCellViewModel.swift in Sources */,
 				A0D2413623D65618004CCE45 /* PagerContentCellBinder.swift in Sources */,
