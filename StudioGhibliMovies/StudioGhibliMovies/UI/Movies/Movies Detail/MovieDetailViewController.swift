@@ -40,6 +40,8 @@ final class MovieDetailViewController: UIViewController {
         self.setupObservers()
     }
 
+    // MARK: - Private Methods
+
     private func setupUI() {
 
         let label = UILabel()
