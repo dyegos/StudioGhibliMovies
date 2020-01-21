@@ -16,6 +16,9 @@
 		A04AF07D23D71BAC00AFD7B2 /* RX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04AF07C23D71BAC00AFD7B2 /* RX.swift */; };
 		A04AF08023D725E400AFD7B2 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04AF07F23D725E400AFD7B2 /* MovieDetailViewController.swift */; };
 		A057030E23D759040012C444 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A057030D23D759040012C444 /* Person.swift */; };
+		A057031023D7711B0012C444 /* MovieDetailControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A057030F23D7711B0012C444 /* MovieDetailControllerViewModel.swift */; };
+		A057031423D771570012C444 /* MovieCharactersCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A057031323D771570012C444 /* MovieCharactersCellViewModel.swift */; };
+		A057031623D782B50012C444 /* MovieDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A057031523D782B40012C444 /* MovieDetailTableViewCell.swift */; };
 		A08D2ECE23D612CD002FE591 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D2ECD23D612CD002FE591 /* AppDelegate.swift */; };
 		A08D2ED823D612CD002FE591 /* StudioGhibliMovies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A08D2ED623D612CD002FE591 /* StudioGhibliMovies.xcdatamodeld */; };
 		A08D2EDA23D612CF002FE591 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A08D2ED923D612CF002FE591 /* Assets.xcassets */; };
@@ -66,6 +69,9 @@
 		A04AF07C23D71BAC00AFD7B2 /* RX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RX.swift; sourceTree = "<group>"; };
 		A04AF07F23D725E400AFD7B2 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		A057030D23D759040012C444 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		A057030F23D7711B0012C444 /* MovieDetailControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailControllerViewModel.swift; sourceTree = "<group>"; };
+		A057031323D771570012C444 /* MovieCharactersCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCharactersCellViewModel.swift; sourceTree = "<group>"; };
+		A057031523D782B40012C444 /* MovieDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailTableViewCell.swift; sourceTree = "<group>"; };
 		A08D2ECA23D612CD002FE591 /* StudioGhibliMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudioGhibliMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08D2ECD23D612CD002FE591 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A08D2ED723D612CD002FE591 /* StudioGhibliMovies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StudioGhibliMovies.xcdatamodel; sourceTree = "<group>"; };
@@ -145,7 +151,10 @@
 		A04AF07E23D7258F00AFD7B2 /* Movies Detail */ = {
 			isa = PBXGroup;
 			children = (
+				A057031523D782B40012C444 /* MovieDetailTableViewCell.swift */,
 				A04AF07F23D725E400AFD7B2 /* MovieDetailViewController.swift */,
+				A057030F23D7711B0012C444 /* MovieDetailControllerViewModel.swift */,
+				A057031323D771570012C444 /* MovieCharactersCellViewModel.swift */,
 			);
 			path = "Movies Detail";
 			sourceTree = "<group>";
@@ -473,6 +482,7 @@
 				A08D2ECE23D612CD002FE591 /* AppDelegate.swift in Sources */,
 				A0D2411323D6560A004CCE45 /* SnapKit.swift in Sources */,
 				A0D2413423D65618004CCE45 /* PagerNavigationController.swift in Sources */,
+				A057031623D782B50012C444 /* MovieDetailTableViewCell.swift in Sources */,
 				A0D2413823D65618004CCE45 /* PagerContentCollectionView.swift in Sources */,
 				A0B77AA323D64B490053749D /* GhibliNetwork.swift in Sources */,
 				A031B52023D63FCA00549556 /* RequestProviding.swift in Sources */,
@@ -485,6 +495,7 @@
 				A0B77AB123D650A90053749D /* UIAlertController+Alerts.swift in Sources */,
 				A0B77AA123D64B110053749D /* Movie.swift in Sources */,
 				A0D2413223D65618004CCE45 /* PagerCellViewModelProtocol.swift in Sources */,
+				A057031023D7711B0012C444 /* MovieDetailControllerViewModel.swift in Sources */,
 				A0D2411823D6560A004CCE45 /* UICollectionView+Dequeue.swift in Sources */,
 				A0D2411423D6560A004CCE45 /* UITableView+Dequeue.swift in Sources */,
 				A0E6A4FB23D6644E002B1D76 /* MovieCellViewModel.swift in Sources */,
@@ -494,6 +505,7 @@
 				A0D2412F23D65618004CCE45 /* PagerTabCollectionViewCell.swift in Sources */,
 				A0D2413C23D65618004CCE45 /* CellConfiguration.swift in Sources */,
 				A0D2413123D65618004CCE45 /* PagerNavigationContainerProtocol.swift in Sources */,
+				A057031423D771570012C444 /* MovieCharactersCellViewModel.swift in Sources */,
 				A0D2413A23D65618004CCE45 /* PagerContentCellViewModel.swift in Sources */,
 				A0D2413623D65618004CCE45 /* PagerContentCellBinder.swift in Sources */,
 				A0D2411623D6560A004CCE45 /* UITableView+dataSourceBinder.swift in Sources */,

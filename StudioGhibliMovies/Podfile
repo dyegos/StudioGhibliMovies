@@ -5,6 +5,7 @@ target 'StudioGhibliMovies' do
 
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'RxDataSources'
   pod 'SwiftLint'
   pod 'SnapKit'
 

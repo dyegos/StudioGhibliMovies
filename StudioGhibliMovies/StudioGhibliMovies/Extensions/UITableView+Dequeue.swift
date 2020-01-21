@@ -23,6 +23,13 @@ extension UITableView {
         return cell
     }
 
+    func dequeueAndConfigureCell(from model: ItemViewModel, indexPath: IndexPath) -> UITableViewCell {
+        let cell = dequeueReusableCell(withIdentifier: type(of: model).associatedCellReuseIdentifier, for: indexPath)
+        self.configure(cell: cell, from: model)
+
+        return cell
+    }
+
     private func configure(cell: UITableViewCell, from viewModel: ItemViewModel) {
         guard let cell = cell as? CellConfigurable else {
             fatalError("Cell does not implement CellConfigurable protocol! Did you forget to add it?")

@@ -19,14 +19,6 @@ final class MovieTableViewCell: RxTableViewCell, CellIdentifiable, CellConfigura
         return label
     }()
 
-    private let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 12)
-
-        return label
-    }()
-
     private let directorLabel: UILabel = {
         let label = UILabel()
         label.enableScaleToFit()
@@ -66,7 +58,6 @@ final class MovieTableViewCell: RxTableViewCell, CellIdentifiable, CellConfigura
     private func configureUI() {
         self.accessoryType = .disclosureIndicator
         self.contentView.addSubview(self.titleLabel)
-        self.contentView.addSubview(self.descriptionLabel)
         self.contentView.addSubview(self.directorLabel)
         self.contentView.addSubview(self.producerLabel)
         self.contentView.addSubview(self.scoreLabel)
@@ -83,13 +74,8 @@ final class MovieTableViewCell: RxTableViewCell, CellIdentifiable, CellConfigura
             $0.bottom.equalTo(self.titleLabel)
         }
 
-        self.descriptionLabel.snp.makeConstraints {
-            $0.leadingTrailingEqualToSuperview(offset: 16)
-            $0.top.equalTo(self.titleLabel.snp.bottom).offset(6)
-        }
-
         self.directorLabel.snp.makeConstraints {
-            $0.top.equalTo(self.descriptionLabel.snp.bottom).offset(6)
+            $0.top.equalTo(self.titleLabel.snp.bottom).offset(6)
             $0.leadingTrailingEqualToSuperview(offset: 16)
         }
 
@@ -105,7 +91,6 @@ final class MovieTableViewCell: RxTableViewCell, CellIdentifiable, CellConfigura
 
         self.titleLabel.text = model.title
         self.scoreLabel.text = model.score
-        self.descriptionLabel.text = model.description
         self.directorLabel.text = model.director
         self.producerLabel.text = model.producer
     }
