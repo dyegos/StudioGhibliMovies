@@ -19,6 +19,7 @@ final class PagerScrollBackButton: UIButton {
 
         self.setImage(UIImage(named: "back_icon"), for: .normal)
         self.imageView?.contentMode = .scaleAspectFit
+        self.imageView?.tintColor = .myBlack
     }
 
     required init?(coder: NSCoder) {

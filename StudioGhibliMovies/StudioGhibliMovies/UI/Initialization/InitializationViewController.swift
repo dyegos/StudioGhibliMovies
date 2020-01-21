@@ -18,16 +18,24 @@ final class InitializationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .safeSystemBackground
 
-        network
+        self.requestMovies()
+    }
+
+    private func requestMovies() {
+        self.network
             .movies
             .subscribe(onSuccess: { [weak self] movies in
                 self?.presentPager(movies: movies)
-            }, onError: { [weak self] error in
-                guard let strongSelf = self else { return }
+                }, onError: { [weak self] error in
+                    guard let strongSelf = self else { return }
 
-                UIAlertController.alertError(error.localizedDescription, onViewController: strongSelf)
+                    UIAlertController.alertError(error.localizedDescription,
+                                                 onViewController: strongSelf,
+                                                 handler: { [weak strongSelf] _ in
+                                                    strongSelf?.requestMovies()
+                                                 })
             }).disposed(by: self.disposeBag)
     }
 

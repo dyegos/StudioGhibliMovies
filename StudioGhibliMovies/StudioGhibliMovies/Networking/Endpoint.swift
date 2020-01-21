@@ -57,7 +57,7 @@ extension Endpoint: RequestProviding, TaskProviding {
         var request = URLRequest(url: newURL)
         request.httpMethod = self.method.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpShouldHandleCookies = false
+        request.cachePolicy = .returnCacheDataElseLoad
 
         return request
     }

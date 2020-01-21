@@ -10,16 +10,16 @@ import Foundation
 import RxSwift
 
 protocol Networking {
-    func execute<T: Decodable>(_ requestProvider: RequestProviding, type: T.Type) -> Single<T>
+    func execute<T: Decodable>(_ requestProvider: RequestProviding, type: T.Type, session: URLSession) -> Single<T>
 }
 
 extension Networking {
 
-    func execute<T: Decodable>(_ requestProvider: RequestProviding, type: T.Type) -> Single<T> {
+    func execute<T: Decodable>(_ requestProvider: RequestProviding, type: T.Type, session: URLSession = .shared) -> Single<T> {
         Single<T>.create(subscribe: { single in
             let urlRequest = requestProvider.urlRequest
 
-            let session = URLSession.shared.dataTask(with: urlRequest, completionHandler: { data, _, error in
+            let session = session.dataTask(with: urlRequest, completionHandler: { data, _, error in
                 if let error = error {
                     single(.error(error))
                     return

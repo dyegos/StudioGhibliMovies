@@ -11,10 +11,10 @@ import RxSwift
 import RxCocoa
 
 struct PagerTabBarDimensionsProvider {
-    static let size: CGSize = { CGSize(width: UIScreen.main.bounds.width / 3.0, height: 26.0) }()
-    static let width: CGFloat = { Self.size.width }()
-    static let height: CGFloat = { Self.size.height }()
-    static let collectionSize: CGSize = { CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 26.0) }()
+    static var size: CGSize { CGSize(width: UIScreen.main.bounds.width / 3.0, height: 26.0) }
+    static var width: CGFloat { Self.size.width }
+    static var height: CGFloat { Self.size.height }
+    static var collectionSize: CGSize { CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 26.0) }
 }
 
 final class PagerTabCollectionView: UICollectionView {

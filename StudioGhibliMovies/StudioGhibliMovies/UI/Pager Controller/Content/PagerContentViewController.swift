@@ -43,13 +43,13 @@ final class PagerContentViewController: UIViewController, PagerNavigationContain
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .safeSystemBackground
 
         self.configureUI()
         self.setupObservers()
 
         self.contentCollectionView.register(PagerContentCollectionViewCell.self)
-        self.contentCollectionView.backgroundColor = .white
+        self.contentCollectionView.backgroundColor = .safeSystemBackground
         self.contentCollectionView.delegate = self
         self.contentCollectionView.dataSource = self
     }
@@ -69,6 +69,11 @@ final class PagerContentViewController: UIViewController, PagerNavigationContain
             strongSelf.scrollToPage(at: strongSelf.pagerNavigation.currentItemIndex.value)
             strongSelf.updateBackButton(strongSelf.contentCollectionView)
         }
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        self.contentCollectionView.collectionViewLayout.invalidateLayout()
     }
 
     // MARK: - Private Methods

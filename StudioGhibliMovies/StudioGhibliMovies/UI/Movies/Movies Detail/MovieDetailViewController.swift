@@ -19,8 +19,7 @@ final class MovieDetailViewController: UIViewController {
     private let tableView = UITableView(frame: .zero, style: .plain)
     private let disposeBag = DisposeBag()
 
-    init(viewModel: MovieDetailControllerViewModel,
-         network: GhibliNetwork = GhibliNetwork()) {
+    init(viewModel: MovieDetailControllerViewModel, network: GhibliNetwork) {
         self.viewModel = viewModel
         self.network = network
         super.init(nibName: nil, bundle: nil)
@@ -34,7 +33,7 @@ final class MovieDetailViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = self.viewModel.movie.title
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .safeSystemBackground
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(onDismiss))
 
         self.setupUI()
@@ -51,7 +50,7 @@ final class MovieDetailViewController: UIViewController {
         self.view.addSubview(label)
         self.view.addSubview(self.tableView)
         self.tableView.register(MovieDetailTableViewCell.self)
-        self.tableView.backgroundColor = .white
+        self.tableView.backgroundColor = .safeSystemBackground
         self.tableView.tableFooterView = UIView()
         self.tableView.allowsSelection = false
 

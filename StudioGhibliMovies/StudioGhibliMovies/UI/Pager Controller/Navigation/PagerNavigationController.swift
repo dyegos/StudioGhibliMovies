@@ -49,11 +49,21 @@ final class PagerNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationBar.isTranslucent = false
         self.tabCollectionView.register(PagerTabCollectionViewCell.self)
-        self.tabCollectionView.backgroundColor = .white
+        self.tabCollectionView.backgroundColor = .safeSystemBackground
 
         self.setupUI()
         self.setupObservers()
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        if let layout = self.tabCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.itemSize = PagerTabBarDimensionsProvider.size
+            layout.sectionInset = UIEdgeInsets(top: 0, left: layout.itemSize.width, bottom: 0, right: layout.itemSize.height)
+            layout.invalidateLayout()
+        }
     }
 
     // MARK: - Private Methods

@@ -34,8 +34,9 @@ final class PagerNavigationArrow: UIView {
         self.addSubview(arrowImageView)
         self.addSubview(rightView)
 
-        leftView.backgroundColor = .black
-        rightView.backgroundColor = .black
+        leftView.backgroundColor = .myBlack
+        rightView.backgroundColor = .myBlack
+        arrowImageView.tintColor = .myBlack
 
         let lineHeight = 1 / UIScreen.main.scale
         leftView.snp.makeConstraints {

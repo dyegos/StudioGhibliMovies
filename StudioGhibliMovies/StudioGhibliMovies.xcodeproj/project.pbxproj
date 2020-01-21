@@ -19,8 +19,9 @@
 		A057031023D7711B0012C444 /* MovieDetailControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A057030F23D7711B0012C444 /* MovieDetailControllerViewModel.swift */; };
 		A057031423D771570012C444 /* MovieCharactersCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A057031323D771570012C444 /* MovieCharactersCellViewModel.swift */; };
 		A057031623D782B50012C444 /* MovieDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A057031523D782B40012C444 /* MovieDetailTableViewCell.swift */; };
+		A057031823D78BBF0012C444 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A057031723D78BBF0012C444 /* Colors.swift */; };
+		A057031A23D78D4F0012C444 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A057031923D78D4F0012C444 /* Colors.xcassets */; };
 		A08D2ECE23D612CD002FE591 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D2ECD23D612CD002FE591 /* AppDelegate.swift */; };
-		A08D2ED823D612CD002FE591 /* StudioGhibliMovies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A08D2ED623D612CD002FE591 /* StudioGhibliMovies.xcdatamodeld */; };
 		A08D2EDA23D612CF002FE591 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A08D2ED923D612CF002FE591 /* Assets.xcassets */; };
 		A08D2EDD23D612CF002FE591 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A08D2EDB23D612CF002FE591 /* LaunchScreen.storyboard */; };
 		A0B77A9C23D646850053749D /* Thread+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B77A9B23D646850053749D /* Thread+Safe.swift */; };
@@ -72,9 +73,10 @@
 		A057030F23D7711B0012C444 /* MovieDetailControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailControllerViewModel.swift; sourceTree = "<group>"; };
 		A057031323D771570012C444 /* MovieCharactersCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCharactersCellViewModel.swift; sourceTree = "<group>"; };
 		A057031523D782B40012C444 /* MovieDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailTableViewCell.swift; sourceTree = "<group>"; };
+		A057031723D78BBF0012C444 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		A057031923D78D4F0012C444 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		A08D2ECA23D612CD002FE591 /* StudioGhibliMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudioGhibliMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08D2ECD23D612CD002FE591 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A08D2ED723D612CD002FE591 /* StudioGhibliMovies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StudioGhibliMovies.xcdatamodel; sourceTree = "<group>"; };
 		A08D2ED923D612CF002FE591 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A08D2EDC23D612CF002FE591 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A08D2EDE23D612CF002FE591 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -187,10 +189,8 @@
 				A0B77A9E23D6468E0053749D /* Extensions */,
 				A031B51A23D63F5E00549556 /* Networking */,
 				A08D2ECD23D612CD002FE591 /* AppDelegate.swift */,
-				A08D2ED923D612CF002FE591 /* Assets.xcassets */,
 				A08D2EDB23D612CF002FE591 /* LaunchScreen.storyboard */,
 				A08D2EDE23D612CF002FE591 /* Info.plist */,
-				A08D2ED623D612CD002FE591 /* StudioGhibliMovies.xcdatamodeld */,
 			);
 			path = StudioGhibliMovies;
 			sourceTree = "<group>";
@@ -207,6 +207,7 @@
 				A0B77A9B23D646850053749D /* Thread+Safe.swift */,
 				A0B77AB023D650A90053749D /* UIAlertController+Alerts.swift */,
 				A04AF07C23D71BAC00AFD7B2 /* RX.swift */,
+				A057031723D78BBF0012C444 /* Colors.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -235,6 +236,8 @@
 			children = (
 				A0B77AAE23D64FF70053749D /* Localizable.strings */,
 				A0E6A50223D670A1002B1D76 /* Images.xcassets */,
+				A057031923D78D4F0012C444 /* Colors.xcassets */,
+				A08D2ED923D612CF002FE591 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				A031B51723D6386600549556 /* .swiftlint.yml in Resources */,
 				A0E6A50323D670A1002B1D76 /* Images.xcassets in Resources */,
 				A0B77AAC23D64FF70053749D /* Localizable.strings in Resources */,
+				A057031A23D78D4F0012C444 /* Colors.xcassets in Resources */,
 				A08D2EDD23D612CF002FE591 /* LaunchScreen.storyboard in Resources */,
 				A08D2EDA23D612CF002FE591 /* Assets.xcassets in Resources */,
 			);
@@ -468,7 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0E6A4FD23D6646F002B1D76 /* MovieTableViewCell.swift in Sources */,
-				A08D2ED823D612CD002FE591 /* StudioGhibliMovies.xcdatamodeld in Sources */,
+				A057031823D78BBF0012C444 /* Colors.swift in Sources */,
 				A0D2413023D65618004CCE45 /* PagerTabCollectionView.swift in Sources */,
 				A0B77AA823D64F210053749D /* InitializationViewController.swift in Sources */,
 				A04AF08023D725E400AFD7B2 /* MovieDetailViewController.swift in Sources */,
@@ -712,19 +716,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		A08D2ED623D612CD002FE591 /* StudioGhibliMovies.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				A08D2ED723D612CD002FE591 /* StudioGhibliMovies.xcdatamodel */,
-			);
-			currentVersion = A08D2ED723D612CD002FE591 /* StudioGhibliMovies.xcdatamodel */;
-			path = StudioGhibliMovies.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = A08D2EC223D612CD002FE591 /* Project object */;
 }

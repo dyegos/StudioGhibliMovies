@@ -39,9 +39,11 @@ final class PagerTabCollectionViewCell: RxCollectionViewCell, CellIdentifiable, 
         self.titleLabel.text = viewModel.title
 
         viewModel.isHighlighted
-            .map({ $0 ? .black : .gray })
+            .map({ $0 ? .myBlack : .gray })
             .subscribe(onNext: { [weak self] color in
-                self?.titleLabel.textColor = color
+                UIView.animate(withDuration: 0.2) {
+                    self?.titleLabel.textColor = color
+                }
             }).disposed(by: self.disposeBag)
     }
 

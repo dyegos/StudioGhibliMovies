@@ -20,11 +20,11 @@ final class MoviesViewController: UIViewController, ContentIndexable, PagerNavig
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .safeSystemBackground
 
         self.view.addSubview(self.tableView)
         self.tableView.register(MovieTableViewCell.self)
-        self.tableView.backgroundColor = .white
+        self.tableView.backgroundColor = .safeSystemBackground
         self.tableView.tableFooterView = UIView()
 
         self.tableView.snp.makeConstraints {
@@ -62,7 +62,7 @@ final class MoviesViewController: UIViewController, ContentIndexable, PagerNavig
 
     private func presentMovieDetail(with movie: Movie) {
         let viewModel = MovieDetailControllerViewModel(movie: movie)
-        let movieDetailVC = MovieDetailViewController(viewModel: viewModel)
+        let movieDetailVC = MovieDetailViewController(viewModel: viewModel, network: self.network)
         let navgation = UINavigationController(rootViewController: movieDetailVC)
 
         self.present(navgation, animated: true, completion: nil)

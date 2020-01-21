@@ -78,8 +78,4 @@ final class ContentFillCollectionFlowLayout: UICollectionViewFlowLayout {
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         return layoutAttributeCache.first { $0.indexPath == indexPath }
     }
-
-    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
-        return true
-    }
 }
