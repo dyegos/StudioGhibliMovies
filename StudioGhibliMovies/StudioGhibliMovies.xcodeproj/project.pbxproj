@@ -14,6 +14,7 @@
 		A031B51E23D63FB600549556 /* TaskProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031B51D23D63FB600549556 /* TaskProviding.swift */; };
 		A031B52023D63FCA00549556 /* RequestProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031B51F23D63FCA00549556 /* RequestProviding.swift */; };
 		A04AF07D23D71BAC00AFD7B2 /* RX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04AF07C23D71BAC00AFD7B2 /* RX.swift */; };
+		A04AF08023D725E400AFD7B2 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04AF07F23D725E400AFD7B2 /* MovieDetailViewController.swift */; };
 		A08D2ECE23D612CD002FE591 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D2ECD23D612CD002FE591 /* AppDelegate.swift */; };
 		A08D2ED823D612CD002FE591 /* StudioGhibliMovies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A08D2ED623D612CD002FE591 /* StudioGhibliMovies.xcdatamodeld */; };
 		A08D2EDA23D612CF002FE591 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A08D2ED923D612CF002FE591 /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		A031B51D23D63FB600549556 /* TaskProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProviding.swift; sourceTree = "<group>"; };
 		A031B51F23D63FCA00549556 /* RequestProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProviding.swift; sourceTree = "<group>"; };
 		A04AF07C23D71BAC00AFD7B2 /* RX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RX.swift; sourceTree = "<group>"; };
+		A04AF07F23D725E400AFD7B2 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		A08D2ECA23D612CD002FE591 /* StudioGhibliMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudioGhibliMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08D2ECD23D612CD002FE591 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A08D2ED723D612CD002FE591 /* StudioGhibliMovies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StudioGhibliMovies.xcdatamodel; sourceTree = "<group>"; };
@@ -138,6 +140,14 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		A04AF07E23D7258F00AFD7B2 /* Movies Detail */ = {
+			isa = PBXGroup;
+			children = (
+				A04AF07F23D725E400AFD7B2 /* MovieDetailViewController.swift */,
+			);
+			path = "Movies Detail";
+			sourceTree = "<group>";
+		};
 		A08D2EC123D612CD002FE591 = {
 			isa = PBXGroup;
 			children = (
@@ -161,7 +171,7 @@
 			children = (
 				A0B77AAB23D64FDE0053749D /* Resources */,
 				A0B77AA623D64F000053749D /* UI */,
-				A0B77A9F23D64B070053749D /* Models */,
+				A0B77A9F23D64B070053749D /* Entities */,
 				A0D2412C23D65618004CCE45 /* Protocols */,
 				A0B77A9E23D6468E0053749D /* Extensions */,
 				A031B51A23D63F5E00549556 /* Networking */,
@@ -190,12 +200,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		A0B77A9F23D64B070053749D /* Models */ = {
+		A0B77A9F23D64B070053749D /* Entities */ = {
 			isa = PBXGroup;
 			children = (
 				A0B77AA023D64B110053749D /* Movie.swift */,
 			);
-			path = Models;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		A0B77AA623D64F000053749D /* UI */ = {
@@ -289,6 +299,7 @@
 		A0E6A50523D671C3002B1D76 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				A04AF07E23D7258F00AFD7B2 /* Movies Detail */,
 				A0B77AA423D64B8D0053749D /* MoviesViewController.swift */,
 				A0E6A4FA23D6644E002B1D76 /* MovieCellViewModel.swift */,
 				A0E6A4FC23D6646F002B1D76 /* MovieTableViewCell.swift */,
@@ -448,6 +459,7 @@
 				A08D2ED823D612CD002FE591 /* StudioGhibliMovies.xcdatamodeld in Sources */,
 				A0D2413023D65618004CCE45 /* PagerTabCollectionView.swift in Sources */,
 				A0B77AA823D64F210053749D /* InitializationViewController.swift in Sources */,
+				A04AF08023D725E400AFD7B2 /* MovieDetailViewController.swift in Sources */,
 				A0D2411223D6560A004CCE45 /* UICollectionView+dataSourceBinder.swift in Sources */,
 				A0B77AA523D64B8D0053749D /* MoviesViewController.swift in Sources */,
 				A0D2411723D6560A004CCE45 /* UILabel+Scale.swift in Sources */,

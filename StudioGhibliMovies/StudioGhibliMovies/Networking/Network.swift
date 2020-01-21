@@ -19,15 +19,25 @@ extension Networking {
         Single<T>.create(subscribe: { single in
             let urlRequest = requestProvider.urlRequest
 
-            let session = URLSession.shared.dataTask(with: urlRequest, completionHandler: { data, _, error in
+            let session = URLSession.shared.dataTask(with: urlRequest, completionHandler: { data, url, error in
+                if let error = error {
+                    single(.error(error))
+                    return
+                }
+
+                guard let data = data else {
+                    let error = NSError(domain: "Data is null", code: 0, userInfo: [:])
+                    single(.error(error))
+                    return
+                }
+
                 DispatchQueue.global(qos: .userInteractive).async {
-                    guard let data = data,
-                        let decoded = try? JSONDecoder().decode(type, from: data) else {
-                            let error = error ?? NSError(domain: "Unknown Error", code: 0, userInfo: [:])
-                            DispatchQueue.main.async {
-                                single(.error(error))
-                            }
-                            return
+                    guard let decoded = try? JSONDecoder().decode(type, from: data) else {
+                        DispatchQueue.main.async {
+                            let error = NSError(domain: "Unable to parse data", code: 0, userInfo: ["data": data.description])
+                            single(.error(error))
+                        }
+                        return
                     }
 
                     DispatchQueue.main.async {

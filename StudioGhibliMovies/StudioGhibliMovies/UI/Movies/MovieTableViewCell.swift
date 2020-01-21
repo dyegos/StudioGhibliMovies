@@ -14,6 +14,7 @@ final class MovieTableViewCell: RxTableViewCell, CellIdentifiable, CellConfigura
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.enableScaleToFit()
+        label.font = UIFont.boldSystemFont(ofSize: 14)
 
         return label
     }()
@@ -21,6 +22,7 @@ final class MovieTableViewCell: RxTableViewCell, CellIdentifiable, CellConfigura
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 12)
 
         return label
     }()
@@ -28,6 +30,7 @@ final class MovieTableViewCell: RxTableViewCell, CellIdentifiable, CellConfigura
     private let directorLabel: UILabel = {
         let label = UILabel()
         label.enableScaleToFit()
+        label.font = UIFont.italicSystemFont(ofSize: 10)
 
         return label
     }()
@@ -35,6 +38,7 @@ final class MovieTableViewCell: RxTableViewCell, CellIdentifiable, CellConfigura
     private let producerLabel: UILabel = {
         let label = UILabel()
         label.enableScaleToFit()
+        label.font = UIFont.italicSystemFont(ofSize: 10)
 
         return label
     }()
@@ -43,6 +47,7 @@ final class MovieTableViewCell: RxTableViewCell, CellIdentifiable, CellConfigura
         let label = UILabel()
         label.textAlignment = .left
         label.enableScaleToFit()
+        label.font = UIFont.systemFont(ofSize: 14)
 
         return label
     }()
@@ -69,7 +74,6 @@ final class MovieTableViewCell: RxTableViewCell, CellIdentifiable, CellConfigura
         self.titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(10)
             $0.leading.equalToSuperview().offset(16)
-            $0.height.equalTo(20)
         }
 
         self.scoreLabel.snp.makeConstraints {
@@ -87,13 +91,11 @@ final class MovieTableViewCell: RxTableViewCell, CellIdentifiable, CellConfigura
         self.directorLabel.snp.makeConstraints {
             $0.top.equalTo(self.descriptionLabel.snp.bottom).offset(6)
             $0.leadingTrailingEqualToSuperview(offset: 16)
-            $0.height.equalTo(20)
         }
 
         self.producerLabel.snp.makeConstraints {
             $0.top.equalTo(self.directorLabel.snp.bottom).offset(6)
             $0.leadingTrailingEqualToSuperview(offset: 16)
-            $0.height.equalTo(20)
             $0.bottom.equalToSuperview().offset(-10)
         }
     }

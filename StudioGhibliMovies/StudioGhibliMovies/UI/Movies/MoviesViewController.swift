@@ -13,8 +13,7 @@ import RxSwift
 
 final class MoviesViewController: UIViewController, ContentIndexable, PagerNavigationContainerProtocol {
 
-    let models = BehaviorRelay<[MovieCellViewModel]>(value: [])
-
+    private let models = BehaviorRelay<[MovieCellViewModel]>(value: [])
     private let network = GhibliNetwork()
     private let tableView = UITableView(frame: .zero, style: .plain)
     private let disposeBag = DisposeBag()
@@ -48,7 +47,7 @@ final class MoviesViewController: UIViewController, ContentIndexable, PagerNavig
                 return model?.movies[indexPath.row]
             })
             .subscribe(onNext: { [weak self] movie in
-//                self?.present(UIViewController(), animated: true, completion: nil)
+                self?.presentMovieDetail(with: movie)
             }).disposed(by: disposeBag)
     }
 
@@ -59,6 +58,13 @@ final class MoviesViewController: UIViewController, ContentIndexable, PagerNavig
             .subscribe(onNext: { [weak self] model in
                 self?.loadData(from: model)
             }).disposed(by: disposeBag)
+    }
+
+    private func presentMovieDetail(with movie: Movie) {
+        let viewModel = MovieDetailControllerViewModel(movie: movie)
+        let movieDetailVC = MovieDetailViewController(viewModel: viewModel)
+
+        self.navigationController?.present(movieDetailVC, animated: true, completion: nil)
     }
 
     private func loadData(from model: MovieModel) {
