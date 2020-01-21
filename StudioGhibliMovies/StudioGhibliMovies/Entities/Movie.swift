@@ -8,12 +8,6 @@
 
 import Foundation
 
-struct People: Decodable {
-    let name: String
-    let gender: String
-    let age: String
-}
-
 struct Movie: Decodable {
     let id: String
     let title: String
@@ -34,11 +28,26 @@ struct Movie: Decodable {
         director = try container.decode(String.self, forKey: .director)
         releaseDate = try container.decode(String.self, forKey: .releaseDate)
         score = try container.decode(String.self, forKey: .score)
-        let people = try container.decode([String].self, forKey: .score)
-        let species = try container.decode([String].self, forKey: .score)
+        let people = try container.decode([String].self, forKey: .people)
+        let species = try container.decode([String].self, forKey: .species)
 
-        self.people = people.compactMap { URL(string: $0)?.pathComponents[2] }
-        self.species = species.compactMap { URL(string: $0)?.pathComponents[2] }
+        self.people = people.compactMap {
+            guard let components = URL(string: $0)?.pathComponents,
+                components.count == 3 else {
+                return nil
+            }
+
+            return components[2]
+        }
+
+        self.species = species.compactMap {
+            guard let components = URL(string: $0)?.pathComponents,
+                components.count == 3 else {
+                return nil
+            }
+
+            return components[2]
+        }
     }
 
     enum CodingKeys: String, CodingKey {

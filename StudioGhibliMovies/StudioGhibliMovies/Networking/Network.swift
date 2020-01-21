@@ -19,7 +19,7 @@ extension Networking {
         Single<T>.create(subscribe: { single in
             let urlRequest = requestProvider.urlRequest
 
-            let session = URLSession.shared.dataTask(with: urlRequest, completionHandler: { data, url, error in
+            let session = URLSession.shared.dataTask(with: urlRequest, completionHandler: { data, _, error in
                 if let error = error {
                     single(.error(error))
                     return

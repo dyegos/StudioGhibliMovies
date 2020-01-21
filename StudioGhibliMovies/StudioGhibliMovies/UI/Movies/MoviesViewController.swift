@@ -63,8 +63,9 @@ final class MoviesViewController: UIViewController, ContentIndexable, PagerNavig
     private func presentMovieDetail(with movie: Movie) {
         let viewModel = MovieDetailControllerViewModel(movie: movie)
         let movieDetailVC = MovieDetailViewController(viewModel: viewModel)
+        let navgation = UINavigationController(rootViewController: movieDetailVC)
 
-        self.navigationController?.present(movieDetailVC, animated: true, completion: nil)
+        self.present(navgation, animated: true, completion: nil)
     }
 
     private func loadData(from model: MovieModel) {
@@ -78,7 +79,6 @@ final class MoviesViewController: UIViewController, ContentIndexable, PagerNavig
                                                                score: $0.score) })
             DispatchQueue.main.async { [weak self] in
                 self?.models.accept(movies)
-                self?.tableView.reloadData()
             }
         }
     }

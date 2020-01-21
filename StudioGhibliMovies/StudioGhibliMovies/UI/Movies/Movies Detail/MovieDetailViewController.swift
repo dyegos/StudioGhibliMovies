@@ -14,9 +14,71 @@ import SnapKit
 
 final class MoviePersonTableViewCell: UITableViewCell, CellIdentifiable, CellConfigurable {
 
+    private let nameLabel: UILabel = {
+        let label = UILabel()
+        label.enableScaleToFit()
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+
+        return label
+    }()
+
+    private let genderLabel: UILabel = {
+        let label = UILabel()
+        label.enableScaleToFit()
+        label.font = UIFont.italicSystemFont(ofSize: 12)
+
+        return label
+    }()
+
+    private let ageLabel: UILabel = {
+        let label = UILabel()
+        label.enableScaleToFit()
+        label.font = UIFont.systemFont(ofSize: 12)
+
+        return label
+    }()
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        configureUI()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+
+        configureUI()
+    }
+
     func configure(_ model: ItemViewModel) {
         guard let model = model as? MoviePersonCellViewModel else {
             return
+        }
+
+        self.nameLabel.text = model.name
+        self.genderLabel.text = model.gender
+        self.ageLabel.text = model.age
+    }
+
+    private func configureUI() {
+        self.contentView.addSubview(self.nameLabel)
+        self.contentView.addSubview(self.genderLabel)
+        self.contentView.addSubview(self.ageLabel)
+
+        self.nameLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(16)
+            $0.leadingTrailingEqualToSuperview(offset: 16)
+        }
+
+        self.genderLabel.snp.makeConstraints {
+            $0.top.equalTo(nameLabel.snp.bottom).offset(6)
+            $0.leadingTrailingEqualToSuperview(offset: 16)
+        }
+
+        self.ageLabel.snp.makeConstraints {
+            $0.top.equalTo(genderLabel.snp.bottom).offset(6)
+            $0.leadingTrailingEqualToSuperview(offset: 16)
+            $0.bottom.equalToSuperview().offset(-10)
         }
     }
 }
@@ -30,6 +92,7 @@ struct MoviePersonCellViewModel: ItemViewModel {
 }
 
 struct MovieDetailControllerViewModel {
+
     let models = BehaviorRelay<[MoviePersonCellViewModel]>(value: [])
     let movie: Movie
 
@@ -59,6 +122,7 @@ final class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(onDismiss))
 
         self.view.addSubview(self.tableView)
         self.tableView.register(MoviePersonTableViewCell.self)
@@ -72,17 +136,37 @@ final class MovieDetailViewController: UIViewController {
 
         self.tableView
             .rx
-            .bind(dataSource: viewModel.models, cellType: MoviePersonTableViewCell.self)
+            .bind(dataSource: self.viewModel.models, cellType: MoviePersonTableViewCell.self)
             .disposed(by: disposeBag)
 
-        self.network
-            .people(withUUIDs: self.viewModel.movie.people)
-            .map({ $0.map({ MoviePersonCellViewModel(name: $0.name, gender: $0.gender, age: $0.age)  })  })
-            .subscribe(onSuccess: { [weak self] people in
-                self?.viewModel.models.accept(people)
-            }, onError: { [weak self] error in
-                guard let strongSelf = self else { return }
-                UIAlertController.alertError(error.localizedDescription, onViewController: strongSelf)
-            }).disposed(by: disposeBag)
+        if self.viewModel.movie.people.isEmpty == false {
+            self.network
+                .people(withUUIDs: self.viewModel.movie.people)
+                .map({ $0.map { MoviePersonCellViewModel(name: $0.name, gender: $0.gender, age: $0.age) } })
+                .subscribe(onSuccess: { [weak self] people in
+                    guard let strongSelf = self else { return }
+                    strongSelf.viewModel.models.accept(strongSelf.viewModel.models.value + people)
+                }, onError: { [weak self] error in
+                        guard let strongSelf = self else { return }
+                        UIAlertController.alertError(error.localizedDescription, onViewController: strongSelf)
+                }).disposed(by: disposeBag)
+        }
+
+        if self.viewModel.movie.species.isEmpty == false {
+            self.network
+                .species(withUUIDs: self.viewModel.movie.species)
+                .map({ $0.map { MoviePersonCellViewModel(name: $0.name, gender: $0.classification, age: $0.classification) } })
+                .subscribe(onSuccess: { [weak self] people in
+                    guard let strongSelf = self else { return }
+                    strongSelf.viewModel.models.accept(strongSelf.viewModel.models.value + people)
+                }, onError: { [weak self] error in
+                        guard let strongSelf = self else { return }
+                        UIAlertController.alertError(error.localizedDescription, onViewController: strongSelf)
+                }).disposed(by: disposeBag)
+        }
+    }
+
+    @objc private func onDismiss() {
+        self.dismiss(animated: true, completion: nil)
     }
 }

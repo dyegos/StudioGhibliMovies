@@ -11,6 +11,7 @@ import Foundation
 enum Endpoint {
     case movies
     case people(uuids: [String])
+    case species(uuids: [String])
 }
 
 extension Endpoint: RequestProviding, TaskProviding {
@@ -24,6 +25,8 @@ extension Endpoint: RequestProviding, TaskProviding {
             return "films"
         case .people:
             return "people"
+        case .species:
+            return "species"
         }
     }
 
@@ -38,9 +41,14 @@ extension Endpoint: RequestProviding, TaskProviding {
 
         var newURL = url
         switch self {
-        case .people(let uuids):
+        case .people(let uuids) where uuids.isEmpty == false:
             let items: [URLQueryItem] = uuids.map({ URLQueryItem(name: "id", value: $0) })
-            var com = URLComponents(url: newURL, resolvingAgainstBaseURL: false)!
+            var com = URLComponents(url: newURL, resolvingAgainstBaseURL: true)!
+            com.queryItems = items
+            newURL = com.url!
+        case .species(let uuids) where uuids.isEmpty == false:
+            let items: [URLQueryItem] = uuids.map({ URLQueryItem(name: "id", value: $0) })
+            var com = URLComponents(url: newURL, resolvingAgainstBaseURL: true)!
             com.queryItems = items
             newURL = com.url!
         default: break
@@ -48,7 +56,7 @@ extension Endpoint: RequestProviding, TaskProviding {
 
         var request = URLRequest(url: newURL)
         request.httpMethod = self.method.rawValue
-        request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpShouldHandleCookies = false
 
         return request

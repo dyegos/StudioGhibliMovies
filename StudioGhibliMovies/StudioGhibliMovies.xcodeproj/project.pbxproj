@@ -15,6 +15,7 @@
 		A031B52023D63FCA00549556 /* RequestProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031B51F23D63FCA00549556 /* RequestProviding.swift */; };
 		A04AF07D23D71BAC00AFD7B2 /* RX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04AF07C23D71BAC00AFD7B2 /* RX.swift */; };
 		A04AF08023D725E400AFD7B2 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04AF07F23D725E400AFD7B2 /* MovieDetailViewController.swift */; };
+		A057030E23D759040012C444 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A057030D23D759040012C444 /* Person.swift */; };
 		A08D2ECE23D612CD002FE591 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D2ECD23D612CD002FE591 /* AppDelegate.swift */; };
 		A08D2ED823D612CD002FE591 /* StudioGhibliMovies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A08D2ED623D612CD002FE591 /* StudioGhibliMovies.xcdatamodeld */; };
 		A08D2EDA23D612CF002FE591 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A08D2ED923D612CF002FE591 /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 		A031B51F23D63FCA00549556 /* RequestProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProviding.swift; sourceTree = "<group>"; };
 		A04AF07C23D71BAC00AFD7B2 /* RX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RX.swift; sourceTree = "<group>"; };
 		A04AF07F23D725E400AFD7B2 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		A057030D23D759040012C444 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		A08D2ECA23D612CD002FE591 /* StudioGhibliMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudioGhibliMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08D2ECD23D612CD002FE591 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A08D2ED723D612CD002FE591 /* StudioGhibliMovies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StudioGhibliMovies.xcdatamodel; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				A0B77AA023D64B110053749D /* Movie.swift */,
+				A057030D23D759040012C444 /* Person.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				A0D2411823D6560A004CCE45 /* UICollectionView+Dequeue.swift in Sources */,
 				A0D2411423D6560A004CCE45 /* UITableView+Dequeue.swift in Sources */,
 				A0E6A4FB23D6644E002B1D76 /* MovieCellViewModel.swift in Sources */,
+				A057030E23D759040012C444 /* Person.swift in Sources */,
 				A0D2412E23D65618004CCE45 /* PagerScrollBackButton.swift in Sources */,
 				A0D2413323D65618004CCE45 /* PagerNavigationControllerViewModel.swift in Sources */,
 				A0D2412F23D65618004CCE45 /* PagerTabCollectionViewCell.swift in Sources */,

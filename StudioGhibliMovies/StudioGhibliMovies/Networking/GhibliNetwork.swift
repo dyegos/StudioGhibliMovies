@@ -17,7 +17,11 @@ final class GhibliNetwork: Networking {
         self.execute(Endpoint.movies, type: [Movie].self)
     }
 
-    func people(withUUIDs uuids: [String]) -> Single<[People]> {
-        self.execute(Endpoint.people(uuids: uuids), type: [People].self)
+    func people(withUUIDs uuids: [String]) -> Single<[Person]> {
+        self.execute(Endpoint.people(uuids: uuids), type: [Person].self)
+    }
+
+    func species(withUUIDs uuids: [String]) -> Single<[Specie]> {
+        self.execute(Endpoint.species(uuids: uuids), type: [Specie].self)
     }
 }
