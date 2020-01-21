@@ -14,7 +14,7 @@ import RxSwift
 final class MoviesViewController: UIViewController, ContentIndexable, PagerNavigationContainerProtocol {
 
     let models = BehaviorRelay<[MovieCellViewModel]>(value: [])
-    
+
     private let network = GhibliNetwork()
     private let tableView = UITableView(frame: .zero, style: .plain)
     private let disposeBag = DisposeBag()
@@ -42,8 +42,8 @@ final class MoviesViewController: UIViewController, ContentIndexable, PagerNavig
             .itemSelected
             .compactMap({ [weak self] indexPath -> Movie? in
                 guard let strongSelf = self else { return nil }
-                let currentIndex = strongSelf.periodNavigation.currentItemIndex.value
-                let model = strongSelf.periodNavigation.dataSource.value[currentIndex] as? MovieModel
+                let currentIndex = strongSelf.pagerNavigation.currentItemIndex.value
+                let model = strongSelf.pagerNavigation.dataSource.value[currentIndex] as? MovieModel
 
                 return model?.movies[indexPath.row]
             })
@@ -53,7 +53,7 @@ final class MoviesViewController: UIViewController, ContentIndexable, PagerNavig
     }
 
     func setIndex(_ index: Int) {
-        self.periodNavigation
+        self.pagerNavigation
             .dataSource
             .compactMap({ $0[index] as? MovieModel })
             .subscribe(onNext: { [weak self] model in

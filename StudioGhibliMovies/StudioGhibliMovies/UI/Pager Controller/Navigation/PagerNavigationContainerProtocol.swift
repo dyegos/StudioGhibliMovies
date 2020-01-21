@@ -12,12 +12,12 @@ import UIKit
 protocol PagerDataSourceModel {}
 
 protocol PagerNavigationContainerProtocol {
-    var periodNavigation: PagerNavigationController { get }
+    var pagerNavigation: PagerNavigationController { get }
 }
 
 extension PagerNavigationContainerProtocol where Self: UIViewController {
 
-    var periodNavigation: PagerNavigationController {
+    var pagerNavigation: PagerNavigationController {
         // swiftlint:disable:next force_cast
         self.navigationController as! PagerNavigationController
     }

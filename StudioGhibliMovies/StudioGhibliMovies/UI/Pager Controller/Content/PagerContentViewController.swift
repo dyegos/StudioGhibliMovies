@@ -57,7 +57,7 @@ final class PagerContentViewController: UIViewController, PagerNavigationContain
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.periodNavigation
+        self.pagerNavigation
             .itemSelected
             .subscribe(onNext: { [weak self] index in
                 self?.scrollToPage(at: index, animated: true)
@@ -66,7 +66,7 @@ final class PagerContentViewController: UIViewController, PagerNavigationContain
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.contentCollectionView.reloadData()
-            strongSelf.scrollToPage(at: strongSelf.periodNavigation.currentItemIndex.value)
+            strongSelf.scrollToPage(at: strongSelf.pagerNavigation.currentItemIndex.value)
             strongSelf.updateBackButton(strongSelf.contentCollectionView)
         }
     }
@@ -114,8 +114,8 @@ final class PagerContentViewController: UIViewController, PagerNavigationContain
     @objc
     private func goBack() {
         self.viewModel.isBackButtonHidden.accept(true)
-        self.periodNavigation.currentItemIndex.accept(self.periodNavigation.originalItemIndex)
-        self.scrollToPage(at: self.periodNavigation.originalItemIndex, animated: true)
+        self.pagerNavigation.currentItemIndex.accept(self.pagerNavigation.originalItemIndex)
+        self.scrollToPage(at: self.pagerNavigation.originalItemIndex, animated: true)
     }
 
     private func scrollToPage(at index: Int, animated: Bool = false) {
@@ -124,16 +124,16 @@ final class PagerContentViewController: UIViewController, PagerNavigationContain
     }
 
     private func updateBackButton(_ scrollView: UIScrollView) {
-        guard self.periodNavigation.dataSource.value.count >= 4 else { return }
+        guard self.pagerNavigation.dataSource.value.count >= 4 else { return }
 
-        let offset = CGFloat(self.periodNavigation.dataSource.value.count - 3) * scrollView.frame.width
+        let offset = CGFloat(self.pagerNavigation.dataSource.value.count - 3) * scrollView.frame.width
         self.viewModel.isBackButtonHidden.accept(offset <= scrollView.contentOffset.x)
     }
 }
 
 extension PagerContentViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.periodNavigation.dataSource.value.count
+        self.pagerNavigation.dataSource.value.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -158,11 +158,11 @@ extension PagerContentViewController: UICollectionViewDelegate {
 
         if offsetOfTopScrollX == 0 { return }
 
-        self.periodNavigation.tabCollectionView.setContentOffset(CGPoint(x: offsetOfTopScrollX, y: 0), animated: false)
+        self.pagerNavigation.tabCollectionView.setContentOffset(CGPoint(x: offsetOfTopScrollX, y: 0), animated: false)
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.periodNavigation.currentItemIndex.accept(Int(round(scrollView.contentOffset.x / scrollView.frame.width)))
+        self.pagerNavigation.currentItemIndex.accept(Int(round(scrollView.contentOffset.x / scrollView.frame.width)))
 
         self.updateBackButton(scrollView)
     }
