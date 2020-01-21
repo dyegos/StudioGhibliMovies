@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  StudioGhibliMovies
+
+  Created by dyego de jesus silva on 20/01/2020.
+  Copyright © 2020 Dyego Silva. All rights reserved.
+*/
+
+"error_message" = "";
+"error_title" = "";
+"produced_by" = "Produzido por: %@";
+"directed_by" = "Dirigido por: %@";
+"scored_as" = "Nota: %@";
+"unknown_error" = "Erro Desconhecido";
+"unknown" = "Desconhecido";
+"classification" = "Classificação: %@";
+"specie" = "Espécie: %@";
+"gender" = "Gênero: %@";
+"age" = "Idade: %@";
+"loading" = "Carregando Conteúdo...";
+"released_in" = "Lançado em %@";
