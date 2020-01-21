@@ -8,4 +8,4 @@ In this project I'm using cocoa pods as a dependency manager.
 - SwiftLint for keeping code consistency based on the best practices for Swift.
 
 This project was made using the concept of MVVM and dependency injections to pass data between controllers.
-The Network layer is a simple enum based types which together with protocols make it easily to expand and maintain
+The Network layer is a simple enum based which together with protocols make it easy to expand and maintain.
