@@ -3,7 +3,7 @@
 //  StudioGhibliMovies
 //
 //  Created by dyego de jesus silva on 21/01/2020.
-//  Copyright © 2020 Some. All rights reserved.
+//  Copyright © 2020 Dyego Silva. All rights reserved.
 //
 
 import Foundation
